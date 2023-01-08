@@ -96,24 +96,229 @@ var specials;
 function getPasswordOptions() {
  
   lengthofpassword=prompt("Choose password character length (10-64characters): ")
-  uppercase=confirm("Uppercase?");
-  lowercase=confirm("Lowercase?");
-  numeric=confirm("Numeric?");
-  specials=confirm("Special Characters?");
+  parseInt(lengthofpassword)
+  if(lengthofpassword >=10 && lengthofpassword <=64){
+    uppercase=confirm("Uppercase?");
+    lowercase=confirm("Lowercase?");
+    numeric=confirm("Numeric?");
+    specials=confirm("Special Characters?");
+    if(uppercase === false && lowercase===false && numeric===false && specials===false ){
+        alert("Sorry! You must choose at least one type of characteritics")
+        return getPasswordOptions();
+    }
+    
+  }else{
+    alert("Sorry!You must choose a number beetwen 10 and 64")
+    return getPasswordOptions();
+  }
+  
   
 }
 
 // Function for getting a random element from an array
-function getRandom(arr) {
+var char=function getRandom(arr) {
   
     return arr[Math.floor(Math.random() * arr.length)];
   
 }
 
 // Function to generate password with user input
+var passwordarr=[];
 function generatePassword() {
+  
+ for(var i=0;i<lengthofpassword;i++){
 
-}
+  if(uppercase === true && lowercase===true && numeric===true && specials===true){
+    var fourchars=Math.floor(Math.random() * 4);  
+    switch(fourchars) {
+        case 0:
+        passwordarr[i]=char(upperCasedCharacters);
+        
+          break;
+        case 1:
+        passwordarr[i]=char(lowerCasedCharacters)
+          
+          break;
+        case 2:
+          passwordarr[i]=char(specialCharacters)
+          
+        break;
+        case 3:
+          passwordarr[i]=char(numericCharacters)
+        
+        break;
+       } 
+    }else if(uppercase===false && lowercase===true && numeric===true && specials===true){
+      var threechars=Math.floor(Math.random() *3 ); 
+      switch(threechars) {
+          case 0:
+          passwordarr[i]=char(numericCharacters)
+          
+            break;
+          case 1:
+          passwordarr[i]=char(lowerCasedCharacters)
+            
+            break;
+          case 2:
+            passwordarr[i]=char(specialCharacters)
+            
+          break;
+          
+         } 
+    }else if(uppercase === true && lowercase===false && numeric===true && specials===true){
+      var threechars=Math.floor(Math.random() *3 ); 
+      switch(threechars) {
+          case 0:
+          passwordarr[i]=char(numericCharacters)
+          
+            break;
+          case 1:
+          passwordarr[i]=char(upperCasedCharacters)
+            
+            break;
+          case 2:
+            passwordarr[i]=char(specialCharacters)
+            
+          break;
+          
+         } 
+    }else if(uppercase === true && lowercase===true && numeric===false && specials===true){
+      var threechars=Math.floor(Math.random() *3 ); 
+      switch(threechars) {
+          case 0:
+          passwordarr[i]=char(upperCasedCharacters)
+          
+            break;
+          case 1:
+          passwordarr[i]=char(lowerCasedCharacters)
+            
+            break;
+          case 2:
+            passwordarr[i]=char(specialCharacters)
+            
+          break;
+          
+         } 
+    }else if(uppercase === true && lowercase===true && numeric===true && specials===false){
+      var threechars=Math.floor(Math.random() *3 ); 
+      switch(threechars) {
+          case 0:
+          passwordarr[i]=char(numericCharacters)
+          
+            break;
+          case 1:
+          passwordarr[i]=char(lowerCasedCharacters)
+            
+            break;
+          case 2:
+            passwordarr[i]=char(upperCasedCharacters)
+            
+          break;
+          
+         } 
+    }else if(uppercase === true && lowercase===true && numeric===false && specials===false){
+      var twochars=Math.floor(Math.random() *2 ); 
+      switch(twochars) {
+          case 0:
+          passwordarr[i]=char(upperCasedCharacters)
+          
+            break;
+          case 1:
+          passwordarr[i]=char(lowerCasedCharacters)
+            
+            break;
+          
+          
+         } 
+    }else if(uppercase === true && lowercase===false && numeric===true && specials===false){
+      var twochars=Math.floor(Math.random() *2 ); 
+      switch(twochars) {
+          case 0:
+          passwordarr[i]=char(upperCasedCharacters)
+          
+            break;
+          case 1:
+          passwordarr[i]=char(numericCharacters)
+            
+            break;
+          
+          
+         } 
+    }else if(uppercase === true && lowercase===false && numeric===false && specials===true){
+      var twochars=Math.floor(Math.random() *2 ); 
+      switch(twochars) {
+          case 0:
+          passwordarr[i]=char(upperCasedCharacters)
+          
+            break;
+          case 1:
+          passwordarr[i]=char(specialCharacters)
+            
+            break;
+          
+          
+         } 
+    }else if(uppercase === false && lowercase===true && numeric===true && specials===false){
+      var twochars=Math.floor(Math.random() *2 ); 
+      switch(twochars) {
+          case 0:
+          passwordarr[i]=char(lowerCasedCharacters)
+          
+            break;
+          case 1:
+          passwordarr[i]=char(numericCharacters)
+            
+            break;
+          
+          
+         } 
+    }else if(uppercase === false && lowercase===true && numeric===false && specials===true){
+      var twochars=Math.floor(Math.random() *2 ); 
+      switch(twochars) {
+          case 0:
+          passwordarr[i]=char(lowerCasedCharacters)
+          
+            break;
+          case 1:
+          passwordarr[i]=char(specialCharacters)
+            
+            break;
+          
+          
+         } 
+    }else if(uppercase === false && lowercase===false && numeric===true && specials===true){
+      var twochars=Math.floor(Math.random() *2 ); 
+      switch(twochars) {
+          case 0:
+          passwordarr[i]=char(numericCharacters)
+          
+            break;
+          case 1:
+          passwordarr[i]=char(specialCharacters)
+            
+            break;
+          
+          
+         } 
+    }else if(uppercase === true && lowercase===false && numeric===false && specials===false){
+          passwordarr[i]=char(upperCasedCharacters)
+    }else if(uppercase === false && lowercase===true && numeric===false && specials===false){
+          passwordarr[i]=char(lowerCasedCharacters)
+    }else if(uppercase === false && lowercase===false && numeric===true && specials===false){
+      passwordarr[i]=char(numericCharacters)
+    }else if(uppercase === false && lowercase===false && numeric===false && specials===true){
+      passwordarr[i]=char(specialCharacters)
+    }  
+    }
+    
+    
+    return passwordarr.join('');
+    // console.log(passwordarr)
+ }
+ 
+ 
+ 
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
@@ -135,4 +340,4 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
-console.log(getRandom(upperCasedCharacters));
+
