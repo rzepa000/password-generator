@@ -10,7 +10,7 @@ N/A
 
 ## Usage
 
-Inspect website and select console tool to see results of the code.
+Press Generate Password button to check functions of the code.
 
 
 
